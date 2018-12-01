@@ -11,3 +11,13 @@ This year, I will do it once again in [Nim](https://nim-lang.org/), and later on
 
 My aim is to provide clean, readable, and idiomatic solutions.
 If you have any comment/suggestion/advice, please let me know!
+
+
+&nbsp;
+
+
+## Solutions
+
+Task | Solution | Comment
+--- | --- | ---
+[Day 1: Chronal Calibration](https://adventofcode.com/2018/day/1) | [day01.nim](nim/day01.nim) | Dogfooding by using [itertools](https://github.com/narimiran/itertools) to `cycle` through the input. The initial version used `sets`, but an array is twice as fast.
