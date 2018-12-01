@@ -11,8 +11,7 @@ var
   second: int
   frequencies: array[-1000..200_000, bool] # manually tweaked
 
-let infiniteList = input.cycle()
-for n in infiniteList():
+for n in input.cycle():
   second += n
   if frequencies[second]:
     break
