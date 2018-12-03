@@ -21,4 +21,5 @@ If you have any comment/suggestion/advice, please let me know!
 Task | Solution | Comment
 --- | --- | ---
 [Day 1: Chronal Calibration](https://adventofcode.com/2018/day/1) | [day01.nim](nim/day01.nim) | Dogfooding by using [itertools](https://github.com/narimiran/itertools) to `cycle` through the input. The initial version used `sets`, but an array is twice as fast.
-[Day 2: Inventory Management System](https://adventofcode.com/2018/day/2) | [day02.nim](nim/day01.nim) | Direct tuple unpacking in loops would be nice to have, to get rid of the superfluous `let (c1, c2) = cs`.
+[Day 2: Inventory Management System](https://adventofcode.com/2018/day/2) | [day02.nim](nim/day02.nim) | Direct tuple unpacking in loops would be nice to have, to get rid of the superfluous `let (c1, c2) = cs`.
+[Day 3: No Matter How You Slice It](https://adventofcode.com/2018/day/3) | [day03.nim](nim/day03.nim) | No need for regex, `scanf` macro is great for these kinds of input.
