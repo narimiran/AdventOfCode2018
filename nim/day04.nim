@@ -3,55 +3,50 @@ import strutils, strscans, algorithm, tables
 let input = readFile("./inputs/04.txt").splitLines
 
 type
-  MidnightHour = array[60, int]
-  Guard = tuple
-    sleepStart: int
-    sleepTimes: MidnightHour
+  SleepRecord = array[60, int]
   Solution = tuple
     minute, guard: int
 
 var
-  currentGuard: int
-  guards = initTable[int, Guard]()
+  currentGuard, sleepStart: int
+  guards = initTable[int, SleepRecord]()
 
 for i, line in input.sorted:
   var
     date: string
-    hh, mm, gid: int
+    hh, mm, guard: int
 
-  if line.scanf("[$+ $i:$i] Guard #$i begins shift", date, hh, mm, gid):
-    currentGuard = gid
-    if not guards.hasKey(gid):
-      var mh: MidnightHour
-      guards[gid] = (0, mh)
-
+  if line.scanf("[$+ $i:$i] Guard #$i begins shift", date, hh, mm, guard):
+    currentGuard = guard
+    if not guards.hasKey(guard):
+      var sr: SleepRecord
+      guards[guard] = sr
   if line.scanf("[$+ $i:$i] falls asleep", date, hh, mm):
-    guards[currentGuard].sleepStart = mm
-
+    sleepStart = mm
   if line.scanf("[$+ $i:$i] wakes up", date, hh, mm):
-    for m in guards[currentGuard].sleepStart ..< mm:
-      inc guards[currentGuard].sleepTimes[m]
+    for m in sleepStart ..< mm:
+      inc guards[currentGuard][m]
 
 
 var
-  totalSleepingTime, maxSleepAmount: int
+  highestSleepingTime, maxSleepAmount: int
   first, second: Solution
 
-for guard, info in guards.pairs:
-  var sleepingTime, maxAmount, maxMinute: int
+for guard, sleepRecord in guards.pairs:
+  var sleepingTime, maxAmount, sleepiestMinute: int
 
-  for minute, amount in info.sleepTimes:
-    sleepingTime += amount
-    if amount > maxAmount:
-      maxAmount = amount
-      maxMinute = minute
-    if amount > maxSleepAmount:
-      maxSleepAmount = amount
+  for minute, slept in sleepRecord:
+    sleepingTime += slept
+    if slept > maxAmount:
+      maxAmount = slept
+      sleepiestMinute = minute
+    if slept > maxSleepAmount:
+      maxSleepAmount = slept
       second = (minute, guard)
 
-  if sleepingTime > totalSleepingTime:
-    totalSleepingTime = sleepingTime
-    first = (maxMinute, guard)
+  if sleepingTime > highestSleepingTime:
+    highestSleepingTime = sleepingTime
+    first = (sleepiestMinute, guard)
 
 
 echo first.minute * first.guard
