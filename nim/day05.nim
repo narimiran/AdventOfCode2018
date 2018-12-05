@@ -1,4 +1,4 @@
-import strutils, math
+import strutils
 
 let input = readFile("./inputs/05.txt")
 
@@ -6,11 +6,13 @@ let input = readFile("./inputs/05.txt")
 func reactions(polymer: string): seq[char] =
   # A version with just `add` and `pop` to the `seq[char]` is more elegant,
   # but it is 30% slower than this.
+  # Since lower and upper letters are 32 (2^5) characters apart, we can use
+  # `a xor b`, which is faster than `abs(a - b)`.
   var
     stack: array[11000, char] # manually tweaked
     pos: int
   for unit in polymer:
-    if pos > 0 and abs(ord(unit) - ord(stack[pos-1])) == 32:
+    if pos > 0 and (ord(unit) xor ord(stack[pos-1])) == 32:
       dec pos
     else:
       stack[pos] = unit
