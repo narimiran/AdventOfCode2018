@@ -23,8 +23,9 @@ let points = block:
   res
 
 
-var grid: Grid
-var regionSize: int
+var
+  grid: Grid
+  regionSize: int
 
 for x in Limits:
   for y in Limits:

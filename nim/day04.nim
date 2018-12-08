@@ -11,7 +11,7 @@ var
   currentGuard, sleepStart: int
   guards = initTable[int, SleepRecord]()
 
-for i, line in input.sorted:
+for i, line in sorted input:
   var
     date: string
     hh, mm, guard: int

@@ -1,6 +1,6 @@
-import strutils, strscans
+import strscans
 
-let input = readFile("./inputs/03.txt").splitLines
+let input = "./inputs/03.txt"
 
 const size = 1000
 type
@@ -10,7 +10,7 @@ var
   fabric: array[size, array[size, int]]
   claims: seq[Claim]
 
-for line in input:
+for line in input.lines:
   var id, x, y, w, h: int
   if line.scanf("#$i @ $i,$i: $ix$i", id, x, y, w, h):
     for i in y ..< y+h:

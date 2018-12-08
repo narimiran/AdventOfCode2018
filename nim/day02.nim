@@ -1,13 +1,13 @@
 import strutils, sequtils
 
-let input = readFile("./inputs/02.txt").splitLines()
+let input = readFile("./inputs/02.txt").splitLines
 
 func first(input: seq[string]): int =
   var twice, thrice: int
   for line in input:
     var hasPairs, hasTriplets: bool
     for c in line:
-      case line.count(c)
+      case line.count c
         of 2: hasPairs = true
         of 3: hasTriplets = true
         else: discard

@@ -11,7 +11,7 @@ var
   second: int
   frequencies: array[-1000..200_000, bool] # manually tweaked
 
-for n in input.cycle():
+for n in cycle input:
   second += n
   if frequencies[second]:
     break
