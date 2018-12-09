@@ -27,3 +27,4 @@ Task | Solution | Comment
 [Day 5: Alchemical Reduction](https://adventofcode.com/2018/day/5) | [day05.nim](nim/day05.nim) | 4x speed improvement when using the already shortened polymer (first part) for the second part.
 [Day 6: Chronal Coordinates](https://adventofcode.com/2018/day/6) | [day06.nim](nim/day06.nim) | The slowest task so far.
 [Day 7: The Sum of Its Parts](https://adventofcode.com/2018/day/7) | [day07.nim](nim/day07.nim) | Using `heapqueue` is a no-brainer here.
+[Day 8: Memory Maneuver](https://adventofcode.com/2018/day/8) | [day08.nim](nim/day08.nim) | Using recursion is a no-brainer here.
