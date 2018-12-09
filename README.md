@@ -28,3 +28,4 @@ Task | Solution | Comment
 [Day 6: Chronal Coordinates](https://adventofcode.com/2018/day/6) | [day06.nim](nim/day06.nim) | The slowest task so far.
 [Day 7: The Sum of Its Parts](https://adventofcode.com/2018/day/7) | [day07.nim](nim/day07.nim) | Using `heapqueue` is a no-brainer here.
 [Day 8: Memory Maneuver](https://adventofcode.com/2018/day/8) | [day08.nim](nim/day08.nim) | Using recursion is a no-brainer here.
+[Day 9: Marble Mania](https://adventofcode.com/2018/day/9) | [day09.nim](nim/day09.nim) | Compile it with `--gc:regions` to get the most performance out of it.
