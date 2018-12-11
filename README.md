@@ -30,3 +30,4 @@ Task | Solution | Comment
 [Day 8: Memory Maneuver](https://adventofcode.com/2018/day/8) | [day08.nim](nim/day08.nim) | Using recursion is a no-brainer here.
 [Day 9: Marble Mania](https://adventofcode.com/2018/day/9) | [day09.nim](nim/day09.nim) | Compile it with `--gc:regions` to get the most performance out of it.
 [Day 10: The Stars Align](https://adventofcode.com/2018/day/10) | [day10.nim](nim/day10.nim) | The first usage of Nim templates this year. Using [unpack](https://github.com/technicallyagd/unpack) for `<-` sequence unpacking.
+[Day 11: Chronal Charge](https://adventofcode.com/2018/day/11) | [day11.nim](nim/day11.nim) | Using [summed-area table](https://en.wikipedia.org/wiki/Summed-area_table) to have O(n^3) solution. (Naïve solution is O(n^5))
