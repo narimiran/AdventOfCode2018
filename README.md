@@ -31,3 +31,4 @@ Task | Solution | Comment
 [Day 9: Marble Mania](https://adventofcode.com/2018/day/9) | [day09.nim](nim/day09.nim) | Compile it with `--gc:regions` to get the most performance out of it.
 [Day 10: The Stars Align](https://adventofcode.com/2018/day/10) | [day10.nim](nim/day10.nim) | The first usage of Nim templates this year. Using [unpack](https://github.com/technicallyagd/unpack) for `<-` sequence unpacking.
 [Day 11: Chronal Charge](https://adventofcode.com/2018/day/11) | [day11.nim](nim/day11.nim) | Using [summed-area table](https://en.wikipedia.org/wiki/Summed-area_table) to have O(n^3) solution. (Naïve solution is O(n^5))
+[Day 12: Subterranean Sustainability](https://adventofcode.com/2018/day/12) | [day12.nim](nim/day12.nim) | Nothing to write home about.
