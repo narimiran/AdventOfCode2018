@@ -34,3 +34,5 @@ Task | Solution | Comment
 [Day 12: Subterranean Sustainability](https://adventofcode.com/2018/day/12) | [day12.nim](nim/day12.nim) | Nothing to write home about.
 [Day 13: Mine Cart Madness](https://adventofcode.com/2018/day/13) | [day13.nim](nim/day13.nim) | Using [complex plane](https://en.wikipedia.org/wiki/Complex_plane) is the obvious choice in the tasks like this, but `complex` in Nim is limited to floats, so I decided to use plain old tuples of integers.
 [Day 14: Chocolate Charts](https://adventofcode.com/2018/day/14) | [day14.nim](nim/day14.nim) | Using `int8` to keep the memory usage down.
+[Day 15: Beverage Bandits](https://adventofcode.com/2018/day/15) | | Ain't nobody got time for that.
+[Day 16: Chronal Classification](https://adventofcode.com/2018/day/16) | [day16.nim](nim/day16.nim) | Nim bitsets don't have `pop`.
