@@ -5,9 +5,11 @@ let input = "./inputs/03.txt"
 const size = 1000
 type
   Claim = tuple
-    id, x, y, w, h: int
+    id, x, y, w, h: int16
+  Fabric = array[size, array[size, int16]]
+
 var
-  fabric: array[size, array[size, int]]
+  fabric: Fabric
   claims: seq[Claim]
 
 for line in input.lines:
@@ -16,8 +18,7 @@ for line in input.lines:
     for i in y ..< y+h:
       for j in x ..< x+w:
         inc fabric[i][j]
-    claims.add (id, x, y, w, h)
-
+    claims.add (id.int16, x.int16, y.int16, w.int16, h.int16)
 
 proc first(): int =
   for i in 0 ..< size:
