@@ -20,7 +20,7 @@ If you have any comment/suggestion/advice, please let me know!
 
 Task | Solution | Comment
 --- | --- | ---
-[Day 1: Chronal Calibration](https://adventofcode.com/2018/day/1) | [day01.nim](nim/day01.nim) | Dogfooding by using [itertools](https://github.com/narimiran/itertools) to `cycle` through the input. The initial version used `sets`, but an array is twice as fast.
+[Day 1: Chronal Calibration](https://adventofcode.com/2018/day/1) | [day01.nim](nim/day01.nim) | Dogfooding by using [itertools](https://github.com/narimiran/itertools) to `cycle` through the input. Using `IntSet` for fast lookups.
 [Day 2: Inventory Management System](https://adventofcode.com/2018/day/2) | [day02.nim](nim/day02.nim) | Iterator `items` allows for tuple unpacking in for-loops.
 [Day 3: No Matter How You Slice It](https://adventofcode.com/2018/day/3) | [day03.nim](nim/day03.nim) | No need for regex, `scanf` macro is great for these kinds of input. Using `int16` instead of `int` gives noticeable 2x speed boost.
 [Day 4: Repose Record](https://adventofcode.com/2018/day/4) | [day04.nim](nim/day04.nim) | [2018-12-04 06:00] Guard narimiran begins shift
