@@ -1,4 +1,4 @@
-import strutils, sequtils
+import strutils
 
 let input = readFile("./inputs/02.txt").splitLines
 
@@ -16,18 +16,20 @@ func first(input: seq[string]): int =
   result = twice * thrice
 
 func sameLetters(line1, line2: string): string =
-  for c1, c2 in zip(line1, line2).items:
-    if c1 == c2:
-      result.add c1
+  for c in 0 ..< line1.len:
+    if line1[c] == line2[c]:
+      result.add line1[c]
 
 func second(input: seq[string]): string =
+  let l = input[0].len
+  var found: bool
   for i, line1 in input:
     for line2 in input[i+1 .. input.high]:
-      var differences: int
-      for c1, c2 in zip(line1, line2).items:
-        if c1 != c2:
-          inc differences
-      if differences == 1:
+      for c in 0 ..< l:
+        if line1[c] != line2[c]:
+          found = not found
+          if not found: break
+      if found:
         return sameLetters(line1, line2)
 
 
