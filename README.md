@@ -36,5 +36,5 @@ Task | Solution | Comment
 [Day 14: Chocolate Charts](https://adventofcode.com/2018/day/14) | [day14.nim](nim/day14.nim) | Using `int8` to keep the memory usage down.
 [Day 15: Beverage Bandits](https://adventofcode.com/2018/day/15) | | Ain't nobody got time for that.
 [Day 16: Chronal Classification](https://adventofcode.com/2018/day/16) | [day16.nim](nim/day16.nim) | Nim bitsets don't have `pop`.
-[Day 17: Reservoir Research](https://adventofcode.com/2018/day/17) |  | Soon (TM)
+[Day 17: Reservoir Research](https://adventofcode.com/2018/day/17) | [day17.nim](nim/day17.nim) | Recursion keeps things nice and simple. Templates help with the readability.
 [Day 18: Settlers of The North Pole](https://adventofcode.com/2018/day/18) | [day18.nim](nim/day18.nim) | Simplified boundary conditions by creating a border around the area.
