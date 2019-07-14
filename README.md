@@ -39,3 +39,4 @@ Task | Solution | Comment
 [Day 17: Reservoir Research](https://adventofcode.com/2018/day/17) | [day17.nim](nim/day17.nim) | Recursion keeps things nice and simple. Templates help with the readability.
 [Day 18: Settlers of The North Pole](https://adventofcode.com/2018/day/18) | [day18.nim](nim/day18.nim) | Simplified boundary conditions by creating a border around the area.
 [Day 19: Go With The Flow](https://adventofcode.com/2018/day/19) | [day19.nim](nim/day19.nim) | Figured out the inner loop, do it "automatically".
+[Day 20: A Regular Map](https://adventofcode.com/2018/day/20) | [day20.nim](nim/day20.nim) | The initial solution first created a maze and then DFS-ed through it. Current solution immediately calculates the distances, for 3x performance gain.
