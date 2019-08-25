@@ -30,9 +30,9 @@ Task | Solution | Comment
 [Day 8: Memory Maneuver](https://adventofcode.com/2018/day/8) | [day08.nim](nim/day08.nim) | Using recursion is a no-brainer here.
 [Day 9: Marble Mania](https://adventofcode.com/2018/day/9) | [day09.nim](nim/day09.nim) | Compile it with `--gc:regions` to get the most performance out of it.
 [Day 10: The Stars Align](https://adventofcode.com/2018/day/10) | [day10.nim](nim/day10.nim) | The first usage of Nim templates this year. Using [unpack](https://github.com/technicallyagd/unpack) for `<-` sequence unpacking.
-[Day 11: Chronal Charge](https://adventofcode.com/2018/day/11) | [day11.nim](nim/day11.nim) | Using [summed-area table](https://en.wikipedia.org/wiki/Summed-area_table) to have O(n^3) solution. (Naïve solution is O(n^5))
+[Day 11: Chronal Charge](https://adventofcode.com/2018/day/11) | [day11.nim](nim/day11.nim) | Using [summed-area table](https://en.wikipedia.org/wiki/Summed-area_table) to have O(n^3) solution (naïve solution is O(n^5)). Using threads gives 2x speed boost.
 [Day 12: Subterranean Sustainability](https://adventofcode.com/2018/day/12) | [day12.nim](nim/day12.nim) | Nothing to write home about.
-[Day 13: Mine Cart Madness](https://adventofcode.com/2018/day/13) | [day13.nim](nim/day13.nim) | Using [complex plane](https://en.wikipedia.org/wiki/Complex_plane) is the obvious choice in the tasks like this, but `complex` in Nim is limited to floats, so I decided to use plain old tuples of integers.
+[Day 13: Mine Cart Madness](https://adventofcode.com/2018/day/13) | [day13.nim](nim/day13.nim) | Using [complex plane](https://en.wikipedia.org/wiki/Complex_plane) is the obvious choice for the tasks like this, but `complex` in Nim is limited to floats, so I decided to use plain old tuples of integers.
 [Day 14: Chocolate Charts](https://adventofcode.com/2018/day/14) | [day14.nim](nim/day14.nim) | Using `int8` to keep the memory usage down.
 [Day 15: Beverage Bandits](https://adventofcode.com/2018/day/15) | | Ain't nobody got time for that.
 [Day 16: Chronal Classification](https://adventofcode.com/2018/day/16) | [day16.nim](nim/day16.nim) | Nim bitsets don't have `pop`.

@@ -1,4 +1,4 @@
-import strformat
+import strformat, threadpool
 
 const
   input = 4172
@@ -25,8 +25,11 @@ proc mostPowerfulSquare(size = 3): Solution =
         result = (x-size+1, y-size+1, size, sum)
 
 proc mostPowerfulSquareOfAnySize(): Solution =
+  var solutions: array[gridLimit, FlowVar[Solution]]
   for size in coordinates:
-    let res = mostPowerfulSquare(size)
+    solutions[size-1] = spawn mostPowerfulSquare(size)
+  for s in solutions:
+    let res = ^s
     if res.sum > result.sum:
       result = res
 
