@@ -41,3 +41,4 @@ Task | Solution | Comment
 [Day 19: Go With The Flow](https://adventofcode.com/2018/day/19) | [day19.nim](nim/day19.nim) | Figured out the inner loop, do it "automatically".
 [Day 20: A Regular Map](https://adventofcode.com/2018/day/20) | [day20.nim](nim/day20.nim) | The initial solution first created a maze and then DFS-ed through it. Current solution immediately calculates the distances, for 3x performance gain.
 [Day 21: Chronal Conversion](https://adventofcode.com/2018/day/21) | [day21.nim](nim/day21.nim) | The most interesting part of the task (figuring out what the instructions really do) was done on paper. [Here](inputs/21-annotated.txt) is a part of it.
+[Day 22: Chronal Conversion](https://adventofcode.com/2018/day/22) | [day22.nim](nim/day22.nim) | The first time in four years that I use [`A*` algorithm](https://www.redblobgames.com/pathfinding/a-star/introduction.html#astar) for some AoC task.
