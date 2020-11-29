@@ -5,7 +5,7 @@ let input = "./inputs/07.txt"
 var
   predecessors = initTable[char, set[char]]()
   successors = initTable[char, set[char]]()
-  availableAtStart = newHeapQueue[char]()
+  availableAtStart = initHeapQueue[char]()
 
 for line in input.lines:
   var before, after: string
@@ -26,7 +26,7 @@ proc solve(workers: int): (string, int) =
     remainingPredecessors = predecessors
     availableLetters = availableAtStart
     availableWorkers = workers
-    workingQueue = newHeapQueue[(int, char)]()
+    workingQueue = initHeapQueue[(int, char)]()
 
   proc processingTime(x: char): int =
     if availableWorkers == 1: 0 else: ord(x) - 4
