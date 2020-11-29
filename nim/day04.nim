@@ -48,6 +48,8 @@ for guard, sleepRecord in guards.pairs:
     highestSleepingTime = sleepingTime
     first = (sleepiestMinute, guard)
 
+proc `$`(x: Solution): string =
+  $(x.minute * x.guard)
 
-echo first.minute * first.guard
-echo second.minute * second.guard
+echo first
+echo second
