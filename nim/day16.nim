@@ -6,14 +6,16 @@ let input = readFile("./inputs/16.txt")
 type
   Registers = array[4, int]
   Instruction = tuple[op, a, b, c: int]
-  Sample = tuple
+  Sample = object
     before: Registers
     instruction: Instruction
     after: Registers
   Samples = seq[Sample]
   Operation = enum
-    adrr, addi, mulr, muli, banr, bani, borr, bori,
-    setr, seti, gtir, gtrr, gtri, eqir, eqrr, eqri
+    opAddr = "addr", opAddi = "addi", opMulr = "mulr", opMuli = "muli",
+    opBanr = "banr", opBani = "bani", opBorr = "borr", opBori = "bori",
+    opSetr = "setr", opSeti = "seti", opGtir = "gtir", opGtrr = "gtrr",
+    opGtri = "gtri", opEqir = "eqir", opEqrr = "eqrr", opEqri = "eqri"
   OperationsCandidates = array[16, set[Operation]]
   OperationsList = array[16, Operation]
 
@@ -28,22 +30,22 @@ for i in 0 .. 15:
 
 proc execute(instr: Instruction, operation: Operation): int =
   case operation
-    of adrr: registers[instr.a] + registers[instr.b]
-    of addi: registers[instr.a] + instr.b
-    of mulr: registers[instr.a] * registers[instr.b]
-    of muli: registers[instr.a] * instr.b
-    of banr: registers[instr.a] and registers[instr.b]
-    of bani: registers[instr.a] and instr.b
-    of borr: registers[instr.a] or registers[instr.b]
-    of bori: registers[instr.a] or instr.b
-    of setr: registers[instr.a]
-    of seti: instr.a
-    of gtir: int instr.a > registers[instr.b]
-    of gtrr: int registers[instr.a] > registers[instr.b]
-    of gtri: int registers[instr.a] > instr.b
-    of eqir: int instr.a == registers[instr.b]
-    of eqrr: int registers[instr.a] == registers[instr.b]
-    of eqri: int registers[instr.a] == instr.b
+    of opAddr: registers[instr.a] + registers[instr.b]
+    of opAddi: registers[instr.a] + instr.b
+    of opMulr: registers[instr.a] * registers[instr.b]
+    of opMuli: registers[instr.a] * instr.b
+    of opBanr: registers[instr.a] and registers[instr.b]
+    of opBani: registers[instr.a] and instr.b
+    of opBorr: registers[instr.a] or registers[instr.b]
+    of opBori: registers[instr.a] or instr.b
+    of opSetr: registers[instr.a]
+    of opSeti: instr.a
+    of opGtir: int instr.a > registers[instr.b]
+    of opGtrr: int registers[instr.a] > registers[instr.b]
+    of opGtri: int registers[instr.a] > instr.b
+    of opEqir: int instr.a == registers[instr.b]
+    of opEqrr: int registers[instr.a] == registers[instr.b]
+    of opEqri: int registers[instr.a] == instr.b
 
 proc getSamples(samplesList: seq[string]): Samples =
   var sample: Sample
@@ -82,7 +84,8 @@ proc decodeOperations: OperationsList =
       else:
         possibleOperations[i] = candidates - solvedOperations
   for i, candidates in possibleOperations:
-    for x in candidates: result[i] = x
+    for x in candidates:
+      result[i] = x
 
 let operations = decodeOperations()
 registers = [0, 0, 0, 0]
