@@ -1,11 +1,10 @@
-import strutils, strscans, sequtils
-
-let input = readFile("./inputs/06.txt")
+import strscans
 
 type
   Limits = 50..360 # manually tweaked, based on the input coordinates
-  Grid = array[Limits, array[Limits, int]]
+  Grid = array[Limits, array[Limits, uint8]]
   Point = tuple[x, y: int]
+  Solution = tuple[first, second: int]
 
 iterator items(x: typedesc[Limits]): int =
   for i in x.low .. x.high:
@@ -13,31 +12,27 @@ iterator items(x: typedesc[Limits]): int =
 
 proc read(input: string): seq[Point] =
   var x, y: int
-  for line in input.splitLines:
+  for line in input.lines:
     if line.scanf("$i, $i", x, y):
       result.add (x, y)
 
 func manhattan(p1, p2: Point): int =
   abs(p2.x - p1.x) + abs(p2.y - p1.y)
 
-proc removeInfiniteAreas(grid: Grid): auto =
-  result = {0 .. input.len-1}
-  for n in grid[grid.low]: result.excl n
-  for n in grid[grid.high]: result.excl n
+proc findInfiniteAreas(grid: Grid): set[uint8] =
+  for n in grid[grid.low]: result.incl n
+  for n in grid[grid.high]: result.incl n
   for row in grid:
-    result.excl row[row.low]
-    result.excl row[row.high]
+    result.incl row[row.low]
+    result.incl row[row.high]
 
-
-proc solve =
-  let points = read input
+proc solve: Solution =
+  let points = read "./inputs/06.txt"
   var
     grid: Grid
-    regionSize: int
     areas = newSeq[int](points.len)
-
-  for x in Limits:
-    for y in Limits:
+  for y in Limits:
+    for x in Limits:
       var
         minimalDistance = int.high
         currentOwner: int
@@ -47,23 +42,20 @@ proc solve =
         totalDistances += distance
         if distance < minimalDistance:
           minimalDistance = distance
-          currentOwner = i
+          currentOwner = i+1
         elif distance == minimalDistance:
-          currentOwner = -1
-      if currentOwner >= 0:
-        grid[y][x] = currentOwner
+          currentOwner = 0
+      if currentOwner != 0:
+        grid[y][x] = uint8 currentOwner
         inc areas[currentOwner]
       if totalDistances < 10_000:
-        inc regionSize
-
-  let finites = removeInfiniteAreas grid
-  var maxFiniteArea: int
+        inc result.second
+  let infinites = findInfiniteAreas grid
   for i, area in areas:
-    if i in finites and area > maxFiniteArea:
-      maxFiniteArea = area
-
-  echo maxFiniteArea
-  echo regionSize
+    if uint8(i) notin infinites and area > result.first:
+      result.first = area
 
 
-solve()
+let solutions = solve()
+echo solutions.first
+echo solutions.second
