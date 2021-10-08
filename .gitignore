@@ -4,4 +4,11 @@ nim/*
 proba*
 .vscode
 *.rb
-*-f.txt
+
+
+perf_results/*
+*.fish
+__pycache__
+inputs/*[a-z].txt
+nim/day*[a-z].nim
+python/day*[a-z].py

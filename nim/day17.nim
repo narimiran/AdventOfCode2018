@@ -1,4 +1,4 @@
-import strutils, strscans
+import strscans
 
 type
   Tile = enum

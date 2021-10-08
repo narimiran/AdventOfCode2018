@@ -7,7 +7,7 @@ All my Advent of Code repos:
 * [AoC 2017 in Nim, Python, OCaml](https://github.com/narimiran/AdventOfCode2017)
 * [AoC 2018 in Nim](https://github.com/narimiran/AdventOfCode2018) (this repo)
 * [AoC 2019 in OCaml](https://github.com/narimiran/AdventOfCode2019)
-* [AoC 2020 in Nim](https://github.com/narimiran/AdventOfCode2020)
+* [AoC 2020 in Nim, one liner-y Python](https://github.com/narimiran/AdventOfCode2020)
 
 This year, I will do it once again in [Nim](https://nim-lang.org/), and later on maybe in some other language too.
 

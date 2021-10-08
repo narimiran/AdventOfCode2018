@@ -34,13 +34,12 @@ proc show(nightSky: StarryNight) =
     (minY, maxY) = nightSky.boundary y
     horizontalSpace = maxX - minX + 1
     verticalSpace = maxY - minY + 1
-  var display = newSeqWith(verticalSpace, " ".repeat(horizontalSpace))
+  var display = newSeqWith(verticalSpace, spaces(horizontalSpace))
 
   for star in nightSky:
     display[star.y - minY][star.x - minX] = '#'
   for line in display:
     echo line
-  messageSpotted = true
 
 
 while not messageSpotted:
@@ -49,4 +48,5 @@ while not messageSpotted:
     (nightSky[i].x, nightSky[i].y) = (star.x + star.vx, star.y + star.vy)
   if nightSky.boundary(y).isCompact:
     show nightSky
+    messageSpotted = true
     echo initialWait + time
